@@ -5,7 +5,7 @@ import lombok.Getter;
 import java.util.List;
 
 @Data
-public class Document {
+public class NewDocument {
     private String _id;
     private String name;
     private String email;
@@ -32,28 +32,13 @@ public class Document {
         private String termTitle;
         @Getter
         private String termShortDesc;
-        private List<TermRecommendation> termRecommendation;
-
-        public List<TermRecommendation> getTermRecommendation() {
-            return termRecommendation;
-        }
-
+        @Getter
+        private String normalRecommendation;
+        @Getter
+        private String seriousRecommendation;
     }
 
-    @Data
-    public static class TermRecommendation {
-        private String _id;
-        private String recommendation;
-        private String important;
-
-        public String getRecommendation() {
-            return recommendation;
-        }
-
-        public String getImportant() {
-            return important;
-        }
 
 
-    }
 }
+
