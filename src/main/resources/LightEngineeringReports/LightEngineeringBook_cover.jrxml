@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.2.final using JasperReports Library version 6.21.2-8434a0bd7c3bbc37cbf916f2968d35e4b165821a  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="typewriter_book_cover" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="595" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="c50b24eb-eb33-413f-8e75-e7e20a5341fd">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Light Engineering Adapter"/>
+	<parameter name="BookTitle" class="java.lang.String">
+		<defaultValueExpression><![CDATA["Report Book Template"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="BookSubTitle" class="java.lang.String">
+		<defaultValueExpression><![CDATA["A sample template of a ReportBook"]]></defaultValueExpression>
+	</parameter>
+	<queryString language="JSON">
+		<![CDATA[reportInfo]]>
+	</queryString>
+	<field name="reportName" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="reportName"/>
+		<fieldDescription><![CDATA[reportName]]></fieldDescription>
+	</field>
+	<field name="reportYear" class="java.lang.Integer">
+		<property name="net.sf.jasperreports.json.field.expression" value="reportYear"/>
+		<fieldDescription><![CDATA[reportYear]]></fieldDescription>
+	</field>
+	<field name="department" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="department"/>
+		<fieldDescription><![CDATA[department]]></fieldDescription>
+	</field>
+	<title>
+		<band height="841" splitType="Stretch">
+<!--			<image scaleImage="FillFrame">-->
+<!--				<reportElement x="0" y="230" width="595" height="540" uuid="7d5f399a-cbec-48b3-979b-064c0b477ca2">-->
+<!--					<property name="local_mesure_unitx" value="pixel"/>-->
+<!--					<property name="com.jaspersoft.studio.unit.x" value="px"/>-->
+<!--				</reportElement>-->
+<!--				<imageExpression><![CDATA["LightEngineeringReports/abstract.png"]]></imageExpression>-->
+<!--			</image>-->
+			<textField textAdjust="StretchHeight">
+				<reportElement positionType="Float" mode="Opaque" x="60" y="94" width="534" height="54" forecolor="#FFFFFF" backcolor="#000000" uuid="5bb49d37-ea51-4ca3-a18a-38cb0e66e0ee"/>
+				<box leftPadding="20" rightPadding="20"/>
+				<textElement>
+					<font fontName="Monospaced" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{reportName}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement positionType="Float" x="60" y="154" width="534" height="30" uuid="7f58d454-cae0-4ebb-9ccd-c885124eb525"/>
+				<box leftPadding="20" rightPadding="20"/>
+				<textElement>
+					<font fontName="Monospaced" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{department}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="343" y="803" width="234" height="30" uuid="38fc9afd-edcb-42f3-b6bc-cd258f6507b3"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Printed on " + DATEFORMAT(TODAY( ),"E MMM d, yyyy")]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+</jasperReport>

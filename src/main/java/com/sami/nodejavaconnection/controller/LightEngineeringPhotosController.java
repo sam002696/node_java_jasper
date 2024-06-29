@@ -1,9 +1,12 @@
-package com.sami.nodejavaconnection;
+package com.sami.nodejavaconnection.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sami.nodejavaconnection.model.LightEngineeringDocument;
+import com.sami.nodejavaconnection.model.LightEngineeringPhotos;
+import com.sami.nodejavaconnection.model.LightEngineeringQuestions;
+import com.sami.nodejavaconnection.model.NewDocument;
 import net.sf.jasperreports.engine.*;
-        import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
-import net.sf.jasperreports.engine.data.JsonDataSource;
+        import net.sf.jasperreports.engine.data.JsonDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
@@ -12,21 +15,19 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.ByteArrayInputStream;
+        import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @RestController
-public class NewDocumentController {
+public class LightEngineeringPhotosController {
 
-    private static final Logger logger = LoggerFactory.getLogger(NewDocumentController.class);
+    private static final Logger logger = LoggerFactory.getLogger(LightEngineeringPhotosController.class);
 
-    @PostMapping("/new-generate-report")
-    public ResponseEntity<byte[]> generateReport(@RequestBody NewDocument document) {
+    @PostMapping("/light-engineering-photos-report")
+    public ResponseEntity<byte[]> generateReport(@RequestBody LightEngineeringPhotos document) {
         try {
             // Log received document data
             logger.info("Received document data: {}", document);
@@ -38,7 +39,7 @@ public class NewDocumentController {
 
 
             // Load the Jasper report file
-            InputStream reportStream = getClass().getResourceAsStream("/reports/SamiTest.jrxml");
+            InputStream reportStream = getClass().getResourceAsStream("/reports/lePhotosSample.jrxml");
             if (reportStream == null) {
                 logger.error("Jasper report template not found");
                 return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -81,3 +82,4 @@ public class NewDocumentController {
 
     }
 }
+

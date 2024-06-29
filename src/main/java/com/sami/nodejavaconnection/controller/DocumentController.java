@@ -1,7 +1,8 @@
-package com.sami.nodejavaconnection;
+package com.sami.nodejavaconnection.controller;
 
+import com.sami.nodejavaconnection.model.Document;
+import com.sami.nodejavaconnection.FireSafetyIssueFlat;
 import net.sf.jasperreports.engine.*;
-import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;

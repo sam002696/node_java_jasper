@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.2.final using JasperReports Library version 6.21.2-8434a0bd7c3bbc37cbf916f2968d35e4b165821a  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Preface" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d924b4fd-11d0-41f7-903e-a092807b07a9">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Light Engineering Adapter"/>
+	<subDataset name="PrefaceParagraph" uuid="d0337859-f888-4b40-8ec6-893caa16a334">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Light Engineering Adapter"/>
+		<queryString language="json">
+			<![CDATA[preface.paragraphs]]>
+		</queryString>
+		<field name="para" class="java.lang.String">
+			<property name="net.sf.jasperreports.json.field.expression" value="para"/>
+			<fieldDescription><![CDATA[para]]></fieldDescription>
+		</field>
+	</subDataset>
+	<queryString language="json">
+		<![CDATA[preface]]>
+	</queryString>
+	<field name="paragraphs" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="paragraphs"/>
+		<fieldDescription><![CDATA[paragraphs]]></fieldDescription>
+	</field>
+	<field name="date" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="date"/>
+		<fieldDescription><![CDATA[date]]></fieldDescription>
+	</field>
+	<field name="author" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="author"/>
+		<fieldDescription><![CDATA[author]]></fieldDescription>
+	</field>
+	<field name="role" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="role"/>
+		<fieldDescription><![CDATA[role]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="180" y="20" width="200" height="30" uuid="30208621-5e4c-4f68-a2a5-af88978f5607"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="22" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Preface]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="451" splitType="Stretch">
+			<componentElement>
+				<reportElement positionType="Float" x="3" y="10" width="549" height="90" uuid="1b7cf7cb-3808-499f-bcc5-3064996b2219"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="PrefaceParagraph" uuid="cbac7e15-7739-4e1d-afb7-d8b6a4c039e8">
+						<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JsonDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("paragraphs")]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="90" width="549">
+						<textField textAdjust="StretchHeight">
+							<reportElement x="0" y="0" width="549" height="90" uuid="c62cbce0-0cbd-4af8-be4f-3229b09b6be5"/>
+							<textElement>
+								<font size="11"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{para}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+			<textField>
+				<reportElement positionType="Float" x="3" y="130" width="276" height="30" uuid="3c474609-13e1-4d39-88c0-f30cd2f939f3"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{date}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="3" y="170" width="276" height="30" uuid="010c41a7-c1c5-4fa1-8353-59b729f9e3e8"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{author}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement positionType="Float" x="3" y="210" width="276" height="30" uuid="f920c647-cc3a-4dd6-964d-9a554e34e5ef"/>
+				<textElement>
+					<font size="11"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{role}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

@@ -1,11 +1,11 @@
-package com.sami.nodejavaconnection;
+package com.sami.nodejavaconnection.model;
 
 import lombok.Data;
 import lombok.Getter;
 import java.util.List;
 
 @Data
-public class NewDocument {
+public class Document {
     private String _id;
     private String name;
     private String email;
@@ -32,13 +32,28 @@ public class NewDocument {
         private String termTitle;
         @Getter
         private String termShortDesc;
-        @Getter
-        private String normalRecommendation;
-        @Getter
-        private String seriousRecommendation;
+        private List<TermRecommendation> termRecommendation;
+
+        public List<TermRecommendation> getTermRecommendation() {
+            return termRecommendation;
+        }
+
     }
 
+    @Data
+    public static class TermRecommendation {
+        private String _id;
+        private String recommendation;
+        private String important;
+
+        public String getRecommendation() {
+            return recommendation;
+        }
+
+        public String getImportant() {
+            return important;
+        }
 
 
+    }
 }
-

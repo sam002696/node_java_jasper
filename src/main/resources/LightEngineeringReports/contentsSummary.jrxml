@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.2.final using JasperReports Library version 6.21.2-8434a0bd7c3bbc37cbf916f2968d35e4b165821a  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="contentsSummary" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="dc5ff77e-6ce1-4176-ab20-c0b43e689657">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Light Engineering Adapter"/>
+	<subDataset name="ContentsSummary" uuid="383f88b8-d3a7-498c-8194-8f859e45a6a8">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Light Engineering Adapter"/>
+		<queryString language="json">
+			<![CDATA[contentsSummary.paragraphs]]>
+		</queryString>
+		<field name="para" class="java.lang.String">
+			<property name="net.sf.jasperreports.json.field.expression" value="para"/>
+			<fieldDescription><![CDATA[para]]></fieldDescription>
+		</field>
+		<group name="para">
+			<groupExpression><![CDATA[$F{para}]]></groupExpression>
+		</group>
+	</subDataset>
+	<queryString language="json">
+		<![CDATA[contentsSummary]]>
+	</queryString>
+	<field name="contentTitle" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="contentTitle"/>
+		<fieldDescription><![CDATA[contentTitle]]></fieldDescription>
+	</field>
+	<field name="paragraphs" class="java.lang.String">
+		<property name="net.sf.jasperreports.json.field.expression" value="paragraphs"/>
+		<fieldDescription><![CDATA[paragraphs]]></fieldDescription>
+	</field>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{contentTitle}]]></groupExpression>
+		<groupHeader>
+			<band height="53">
+				<textField hyperlinkType="" hyperlinkTarget="">
+					<reportElement x="160" y="10" width="220" height="30" uuid="34e98603-3bb9-4a47-9d6c-c0636c70f532"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="22" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{contentTitle}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="149" splitType="Stretch">
+			<componentElement>
+				<reportElement x="10" y="0" width="534" height="130" uuid="a7481e26-aaa3-4653-ae77-589fa2e94f44"/>
+				<jr:list xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Vertical">
+					<datasetRun subDataset="ContentsSummary" uuid="e5b0f5a1-3760-4579-82e6-11ae05e89f4c">
+						<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JsonDataSource)$P{REPORT_DATA_SOURCE}).subDataSource("paragraphs")]]></dataSourceExpression>
+					</datasetRun>
+					<jr:listContents height="130" width="534">
+						<textField>
+							<reportElement x="0" y="0" width="534" height="130" uuid="db662ed3-953d-4666-84dc-ad336b847e98"/>
+							<textElement textAlignment="Justified">
+								<font size="11"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$F{para}]]></textFieldExpression>
+						</textField>
+					</jr:listContents>
+				</jr:list>
+			</componentElement>
+		</band>
+	</detail>
+</jasperReport>
